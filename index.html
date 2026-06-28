@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE FINANCIAL IMMORTAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator-container">
+        <header class="calc-header">
+            <h1 class="brand-title">𝑻𝑯𝑬 𝑭𝑰𝑵𝑨𝑵𝑪𝑰𝑨𝑳 𝑰𝑴𝑴𝑶𝑹𝑻𝑨𝑳</h1>
+            <p class="creator-tag">BY: NGIDE EWANE RYAN</p>
+        </header>
+
+        <div class="mode-selector">
+            <button id="btn-standard" class="mode-btn active" onclick="switchMode('standard')">Standard</button>
+            <button id="btn-financial" class="mode-btn" onclick="switchMode('financial')">Financial Formulas</button>
+        </div>
+
+        <div id="standard-view" class="calc-view">
+            <div class="display-screen">
+                <div id="calc-history" class="history-row"></div>
+                <div id="calc-output" class="output-row">0</div>
+            </div>
+            
+            <div class="keypad-grid">
+                <button class="key-btn action" onclick="clearDisplay()">C</button>
+                <button class="key-btn action" onclick="appendOperator('/')">÷</button>
+                <button class="key-btn action" onclick="appendOperator('*')">×</button>
+                <button class="key-btn action" onclick="backspace()">⌫</button>
+
+                <button class="key-btn" onclick="appendNumber('7')">7</button>
+                <button class="key-btn" onclick="appendNumber('8')">8</button>
+                <button class="key-btn" onclick="appendNumber('9')">9</button>
+                <button class="key-btn action" onclick="appendOperator('-')">-</button>
+
+                <button class="key-btn" onclick="appendNumber('4')">4</button>
+                <button class="key-btn" onclick="appendNumber('5')">5</button>
+                <button class="key-btn" onclick="appendNumber('6')">6</button>
+                <button class="key-btn action" onclick="appendOperator('+')">+</button>
+
+                <button class="key-btn" onclick="appendNumber('1')">1</button>
+                <button class="key-btn" onclick="appendNumber('2')">2</button>
+                <button class="key-btn" onclick="appendNumber('3')">3</button>
+                <button class="key-btn equals-btn" onclick="executeCalculation()">=</button>
+
+                <button class="key-btn zero-btn" onclick="appendNumber('0')">0</button>
+                <button class="key-btn" onclick="appendNumber('.')">.</button>
+            </div>
+        </div>
+
+        <div id="financial-view" class="calc-view hidden">
+            <div class="formula-selector-group">
+                <label for="formula-select">Choose Formula:</label>
+                <select id="formula-select" onchange="adjustFormulaInputs()">
+                    <option value="simple-interest">Simple Interest (I = P × r × t)</option>
+                    <option value="compound-interest">Compound Interest (A = P(1 + r/n)^(nt))</option>
+                    <option value="npv">Net Present Value (NPV)</option>
+                    <option value="irr">Internal Rate of Return / Rate (IRR)</option>
+                    <option value="annuity">Annuity Payment (PMT)</option>
+                </select>
+            </div>
+
+            <div id="dynamic-inputs" class="inputs-workspace">
+                </div>
+
+            <button class="calculate-formula-btn" onclick="processFinancialFormula()">= CALCULATE FORMULA</button>
+
+            <div class="financial-result-display">
+                <span class="res-label">Result Summary:</span>
+                <div id="financial-output">0.00</div>
+            </div>
+        </div>
+
+        <footer class="calc-footer">
+            <p>&copy; 2026 NGIDE EWANE RYAN. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

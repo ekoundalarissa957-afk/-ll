@@ -1,0 +1,253 @@
+/* --- 1. THEME MATRIX & ACCENT RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', -apple-system, sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at center, #1e2530 0%, #0a0d14 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow-x: hidden;
+}
+
+.calculator-container {
+    background-color: #121721;
+    width: 100%;
+    max-width: 410px;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 2px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. HEADER TYPOGRAPHY BRANDING --- */
+.calc-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.brand-title {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 168, 204, 0.3);
+}
+
+.creator-tag {
+    color: #00a8cc; /* High energy technical teal tone */
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-top: 4px;
+}
+
+/* --- 3. RUNTIME NAVIGATION MODE CONTROLS --- */
+.mode-selector {
+    display: flex;
+    background-color: #1a202c;
+    border-radius: 10px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: #a0aec0;
+    font-weight: 600;
+    font-size: 0.88rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+    background-color: #2d3748;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* --- 4. STANDARD RADAR TERMINAL DISPLAY --- */
+.display-screen {
+    background-color: #1a202c;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: right;
+    margin-bottom: 20px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.history-row {
+    color: #718096;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    min-height: 1.2rem;
+}
+
+.output-row {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+/* --- 5. INTERACTIVE TOUCH PAD BUTTON GRID --- */
+.keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 15fr);
+    gap: 12px;
+}
+
+.key-btn {
+    background-color: #222a36;
+    border: none;
+    outline: none;
+    padding: 18px;
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s, transform 0.1s;
+}
+
+.key-btn:active {
+    transform: scale(0.96);
+}
+
+.key-btn.action {
+    background-color: #2d3748;
+    color: #00a8cc;
+}
+
+.key-btn.equals-btn {
+    background-color: #00a8cc;
+    color: #121721;
+    grid-row: span 2;
+}
+
+.key-btn.zero-btn {
+    grid-column: span 2;
+    text-align: left;
+    padding-left: 30px;
+}
+
+/* --- 6. FINANCIAL WORKING INPUT FORMS --- */
+.formula-selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.formula-selector-group label {
+    color: #a0aec0;
+    font-size: 0.85rem;
+}
+
+select {
+    background-color: #1a202c;
+    color: #ffffff;
+    padding: 12px;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    outline: none;
+    font-size: 0.95rem;
+}
+
+.inputs-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    max-height: 195px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-block label {
+    color: #a0aec0;
+    font-size: 0.8rem;
+}
+
+.input-block input {
+    background-color: #1a202c;
+    border: 1px solid #2d3748;
+    border-radius: 8px;
+    padding: 10px 12px;
+    color: #ffffff;
+    outline: none;
+    font-size: 1rem;
+}
+
+.input-block input:focus {
+    border-color: #00a8cc;
+}
+
+.calculate-formula-btn {
+    width: 100%;
+    background-color: #00a8cc;
+    color: #121721;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.financial-result-display {
+    background-color: #1a202c;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-top: 15px;
+}
+
+.res-label {
+    color: #718096;
+    font-size: 0.8rem;
+    display: block;
+}
+
+#financial-output {
+    color: #00e676; /* Green highlighting terminal success matrix */
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* --- 7. FOOTER CONTROL SEGMENTS --- */
+.calc-footer {
+    text-align: center;
+    margin-top: 22px;
+    border-top: 1px solid #1a202c;
+    padding-top: 14px;
+    color: #4a5568;
+    font-size: 0.7rem;
+    letter-spacing: 0.5px;
+}
+
+.hidden { display: none !important; }
