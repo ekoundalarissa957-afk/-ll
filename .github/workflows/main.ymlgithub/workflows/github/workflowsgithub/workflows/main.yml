@@ -1,0 +1,26 @@
+name: Build Android APK
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-size: 16
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Create App
+        run: |
+          cordova create build-dir com.ryan.financialimmortal "The Financial Immortal"
+          cp index.html style.css script.js build-dir/www/
+          cd build-dir
+          cordova platform add android
+          cordova build android --no-telemetry
+      - name: Upload APK Asset
+        uses: actions/upload-artifact@v3
+        with:
+          name: FinancialImmortall-APK
+          path: build-dir/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          
